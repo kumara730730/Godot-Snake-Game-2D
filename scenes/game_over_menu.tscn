@@ -1,0 +1,113 @@
+[gd_scene format=3 uid="uid://docodrsxupevu"]
+
+[ext_resource type="FontFile" uid="uid://8fexla5fg7ks" path="res://assets/MaldiniBold.ttf" id="1_6ebp1"]
+[ext_resource type="Script" uid="uid://d1shqlqa7abgw" path="res://scenes/game_over_menu.gd" id="1_cwb3k"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cwb3k"]
+bg_color = Color(0.87071276, 0.92350537, 1.540184e-06, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+shadow_size = 5
+shadow_offset = Vector2(10, 10)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ccgoi"]
+bg_color = Color(0.019607844, 0.34901962, 0.9764706, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.8088644, 0.013488787, 0.020822614, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_81acl"]
+bg_color = Color(0.98039216, 0.039215688, 0.019607844, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.1254902, 0.18039216, 0.96862745, 1)
+border_blend = true
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7u104"]
+bg_color = Color(0.95686275, 0.0627451, 0.07058824, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.019607844, 0.047058824, 0.8, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="Shortcut" id="Shortcut_mvr4g"]
+
+[node name="GameOverMenu" type="CanvasLayer" unique_id=563605083]
+script = ExtResource("1_cwb3k")
+
+[node name="GameOverPanel" type="Panel" parent="." unique_id=1258024122]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -125.0
+offset_right = 200.0
+offset_bottom = 125.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_cwb3k")
+
+[node name="ResultLabel" type="Label" parent="." unique_id=1737925890]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -133.5
+offset_top = -86.0
+offset_right = 133.5
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "GAME OVER!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RestartButton" type="Button" parent="." unique_id=2092553241]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -115.0
+offset_top = 1.0
+offset_right = 115.0
+offset_bottom = 88.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_6ebp1")
+theme_override_font_sizes/font_size = 35
+theme_override_styles/normal = SubResource("StyleBoxFlat_ccgoi")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_81acl")
+theme_override_styles/hover = SubResource("StyleBoxFlat_7u104")
+shortcut = SubResource("Shortcut_mvr4g")
+shortcut_feedback = false
+shortcut_in_tooltip = false
+text = "PLAY AGAIN!!"
+
+[connection signal="pressed" from="RestartButton" to="." method="_on_restart_button_pressed"]
